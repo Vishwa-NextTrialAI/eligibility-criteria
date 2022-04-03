@@ -76,3 +76,40 @@ for i in range (k):
 # import os
 #
 # os.rename('cluster0.csv', 'demographic.csv')
+import spacy
+nlp=spacy.load('en_core_web_sm')
+
+file=('C:/Users/VishwaPrasad/PycharmProjects/eligibilitycrit/clstr0.txt')
+
+
+stream = open(file, encoding = 'latin-1')
+linesof=[]
+for line in stream:
+    linesof.append(line)
+stream.close()
+
+# Tokenization
+for i in linesof:
+    doc=nlp(str(i))
+    for token in doc:
+        # print(token.text,"---------",token.orth_)
+
+# NER
+for i in linesof:
+    doc=nlp(str(i))
+    for ent in doc.ents:
+        # print(ent.text,"---------",ent.label_)
+
+# POS
+for i in linesof:
+    doc=nlp(str(i))
+    for pos in doc:
+        # print(pos.text,"---------",pos.tag_)
+
+# DEPENDENCY PARSING
+for i in linesof:
+    doc=nlp(str(i))
+    for depen in doc:
+        # print(depen.text,"---------",depen.dep_)
+
+
